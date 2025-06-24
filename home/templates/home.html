@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/home_page.css' %}">
+{% endblock %}
+
+{% block title %}Inicio - Serenti{% endblock %}
+
+{% block content %}
+
+<!-- Sección Buscar -->
+<section class="search-section">
+    <div class="section-content">
+        <form class="search-form">
+            <input type="text" placeholder="¿Qué te gustaría leer hoy?" class="search-input">
+            <button type="submit" class="search-button">Buscar</button>
+        </form>
+    </div>
+</section>
+
+<!-- Sección Destacados -->
+<section class="featured-section">
+    <div class="section-content">
+        <h2>Destacados</h2>
+        <h3>Encuentra tu próxima lectura</h3>
+        <div class="featured-grid">
+            <div class="featured-item">Item 1</div>
+            <div class="featured-item">Item 2</div>
+            <div class="featured-item">Item 3</div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección Información -->
+<section class="info-section">
+    <div class="section-content info-flex-container">
+        <div class="info-text">
+            <h2>Lectura con Propósito: Adquiere Tus Libros Físicos o Digitales Hoy</h2>
+            <div class="info-content">
+                <p>En Serenti, encuentras libros que nutren el alma. Adquiere tus ejemplares o la versión digital con un solo clic. Lectura consciente, a tu manera.</p>
+                <ul>
+                    <li>Adquiere copias a la mano.</li>
+                    <li>Facilidad y accesibilidad.</li>
+                </ul>
+                <div class="cta-buttons">
+                    <a href="{% url 'register' %}" class="btn btn-register">Crea Tu Cuenta Ahora</a>
+                </div>
+            </div>
+        </div>
+        <div class="info-image">
+            <img src="{% static 'images/Sect.png' %}" alt="Lectura con Propósito" />
+        </div>
+    </div>
+</section>
+
+<!-- Sección Categoría 1 -->
+<section class="category-section category-1">
+    <div class="section-content">
+        <h2>Categoría 1</h2>
+        <div class="category-grid">
+            <div class="category-item">Item A</div>
+            <div class="category-item">Item B</div>
+            <div class="category-item">Item C</div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección Categoría 2 -->
+<section class="category-section category-2">
+    <div class="section-content">
+        <h2>Categoría 2</h2>
+        <div class="category-grid">
+            <div class="category-item">Item X</div>
+            <div class="category-item">Item Y</div>
+            <div class="category-item">Item Z</div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección CTA (Call to Action) -->
+<section class="cta-section">
+    <div class="section-content">
+        <h2>¿Buscas más opciones? Entonces visita nuestro directorio</h2>
+        <div class="cta-buttons">
+            <a href="{% url 'directory' %}" class="btn btn-login">Explora ahora</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

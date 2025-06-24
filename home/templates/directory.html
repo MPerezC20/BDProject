@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/directory.css' %}">
+{% endblock %}
+
+{% block title %}Directorio{% endblock %}
+
+{% block content %}
+<div class="directory-page">
+    <div class="top-bar section-content">
+        <a href="{% url 'home_page' %}" class="back-button">< Atrás</a>
+        <form class="search-form" method="get" action="">
+            <input type="text" placeholder="¿Qué te gustaría leer hoy?" class="search-input" name="q">
+            <button type="submit" class="search-button">Buscar</button>
+        </form>
+    </div>
+
+    <section class="category-section">
+        <div class="section-content">
+            <h1>Encuentra en nuestra selección</h1>
+        </div>
+    </section>
+
+    {% if directory_items %}
+        {% for category, items in directory_items.items %}
+            <section class="category-section {{ category|slugify }}">
+                <div class="section-content">
+                    <h2>{{ category }}</h2>
+                    <div class="category-grid">
+                        {% for item in items %}
+                            <div class="category-item">
+                                <a href="{% url 'detail' item.id %}">{{ item.name }}</a><br>
+                                <small>{{ item.description }}</small>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+        {% endfor %}
+    {% else %}
+        <section class="category-section">
+            <div class="section-content">
+                <p>No hay elementos en el directorio.</p>
+            </div>
+        </section>
+    {% endif %}
+
+    <section class="category-section">
+        <div class="section-content-bottom">
+            <h2>¿No aparece en el directorio? ¡Haz una búsqueda rápida!</h2>
+        </div>
+    </section>
+</div>
+{% endblock %}

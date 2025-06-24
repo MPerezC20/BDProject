@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+{% endblock %}
+
+{% block title %}Registrate{% endblock %}
+
+{% block content %}
+    <div class="register-page-container">
+        <div class="register-illustration">
+            <img src="{% static 'images/register.png' %}" alt="Ilustración de registro">
+        </div>
+
+        <div class="register-form-container">
+            <h2>Registrate</h2>
+            <form method="post" class="register-form">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <input type="text" id="{{ form.username.id_for_label }}" name="{{ form.username.name }}" placeholder="Nombre de usuario" {% if form.username.value %}value="{{ form.username.value }}"{% endif %} required>
+                </div>
+
+                <div class="form-group">
+                    <input type="tel" id="id_phone" name="phone" placeholder="Teléfono" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" id="{{ form.email.id_for_label }}" name="{{ form.email.name }}" placeholder="Correo electrónico" {% if form.email.value %}value="{{ form.email.value }}"{% endif %} required>
+                </div>
+
+                <div class="form-group password-group">
+                    <input type="password" id="{{ form.password1.id_for_label }}" name="password1" placeholder="Contraseña" required>
+                    <span class="toggle-password" data-target="{{ form.password1.id_for_label }}"></span>
+                </div>
+
+                <div class="form-group password-group">
+                    <input type="password" id="{{ form.password2.id_for_label }}" name="password2" placeholder="Confirmar contraseña" required>
+                    <span class="toggle-password" data-target="{{ form.password2.id_for_label }}"></span>
+                </div>
+
+                {% if form.errors %}
+                    <ul class="form-errors">
+                        {% for field, errors in form.errors.items %}
+                            {% for error in errors %}
+                                <li>{{ field|title }}: {{ error }}</li>
+                            {% endfor %}
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+
+                <button type="submit" class="btn-continue">Continuar</button>
+            </form>
+
+            <p class="terms-text">Al registrarte en Serenti, aceptas la <a href="#">Política de Privacidad</a> y los <a href="#">Condiciones del Servicio</a>.</p>
+            <p class="login-link">¿Ya tienes una cuenta? <a href="{% url 'login' %}">Iniciar Sesión</a></p>
+        </div>
+    </div>
+{% endblock %}

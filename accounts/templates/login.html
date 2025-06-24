@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+{% endblock %}
+
+{% block title %}Iniciar Sesión Ahora{% endblock %}
+
+{% block content %}
+    <div class="login-page-container">
+        <div class="login-form-container">
+            <h2>Login</h2>
+            <form method="post" class="login-form">
+            {% csrf_token %}
+
+            <div class="form-group password-group">
+                <input type="text" id="{{ form.username.id_for_label }}" name="{{ form.username.name }}" placeholder="Nombre de usuario" {% if form.username.value %}value="{{ form.username.value }}"{% endif %} required>
+            </div>
+
+            <div class="form-group password-group">
+                <input type="password" id="{{ form.password.id_for_label }}" name="{{ form.password.name }}" placeholder="Contraseña" required>
+                <span class="toggle-password" data-target="{{ form.password.id_for_label }}"></span>
+            </div>
+
+            {% if form.errors %}
+                <ul class="form-errors">
+                    {% for field, errors in form.errors.items %}
+                        {% for error in errors %}
+                            <li>{{ field|title }}: {{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <button type="submit" class="btn-login-continue">Continuar</button>
+        </form>
+            <p class="terms-text">Nuestras <a href="#">Política de Privacidad</a> y las <a href="#">Condiciones del Servicio</a>.</p>
+        </div>
+
+        <div class="login-illustration">
+            <img src="{% static 'images/Login.png' %}" alt="Ilustración de inicio de sesión">
+        </div>
+    </div>
+{% endblock %}

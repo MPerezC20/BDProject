@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalle del Ítem{% endblock %}
+
+{% block content %}
+    <h1>{{ item.name }}</h1>
+    <p>{{ item.description }}</p>
+    <p><a href="{% url 'directory' %}">Volver al Directorio</a></p>
+{% endblock %}

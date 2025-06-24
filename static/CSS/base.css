@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@300;400&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jua&family=Outfit:wght@100..900&display=swap');
+
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: 'Outfit', Arial, sans-serif;
+    background-color: #f8f8f8;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+    padding-bottom: 40px; /* Espacio antes del footer */
+}
+
+/* Estilos del header/barra de navegación */
+.navbar {
+    background-color: #EEFFFE;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar .logo {
+    font-size: 2em;
+    font-weight: bold;
+    font-family: 'Outfit', sans-serif;
+    color: #A176C9;
+    text-decoration: none;
+}
+
+.navbar-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px;
+}
+
+.navbar-links li a {
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+    color: #333;
+    font-weight: 400;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.navbar-links li a:hover {
+    color: #007bff;
+}
+
+.navbar-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.navbar-buttons .btn {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1em;
+    font-weight: 400;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-register {
+    background-color: #248F8B;
+    color: white;
+}
+
+.btn-register:hover {
+    background-color: #237a77;
+    transform: translateY(-2px);
+}
+
+.btn-login {
+    background-color: #A176C9;
+    color: white;
+}
+
+.btn-login:hover {
+    background-color: #8a5aa8;
+    transform: translateY(-2px);
+}
+
+/* Contenido principal */
+.content-container {
+    padding: 20px;
+    max-width: 960px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-family: 'Outfit', sans-serif;
+}
+
+.main-footer {
+    background-color: #6A9096; 
+    padding-bottom: 20px; 
+    position: relative;
+    width: 100%;
+}
+
+.footer-wave-container {
+    background-color: #79A1A9;
+    padding: 60px 40px; 
+    position: relative;
+    overflow: hidden;
+}
+
+.main-footer {
+    background-image: url('/static/images/ondas.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    background-color: transparent;
+    position: relative;
+    width: 100%;
+}
+
+.footer-wave-container {
+    background-color: transparent;
+    padding: 40px 40px 30px 40px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Contenedor Flex para el contenido dentro de la onda */
+.footer-content-wrapper {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+/* Sección de la Marca e Información (izquierda) */
+.footer-brand-info {
+    padding-top: 0px; /* Más espacio arriba del texto */
+    margin-bottom: 0px;
+}
+
+.footer-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-brand {
+    color: #ffffff;
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 0px;
+    text-decoration: none;
+}
+
+/* Navegación del Footer (derecha) */
+.footer-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex: 1;
+    max-width: 400px;
+}
+
+.footer-nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-family: 'Hind Vadodara', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+}
+
+.footer-nav ul li a:hover {
+    color: #364368;
+}
+
+/* Texto de Copyright */
+.footer-copyright {
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Hind Vadodara', sans-serif;
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 1;
+}
