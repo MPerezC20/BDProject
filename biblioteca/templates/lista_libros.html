@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Libros</title>
+</head>
+<body>
+    <h1>Catálogo de Libros</h1>
+    <table border="1">
+        <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Editorial</th>
+            <th>Fecha</th>
+            <th>Disponible</th>
+        </tr>
+        {% for libro in libros %}
+        <tr>
+            <td>{{ libro.titulo }}</td>
+            <td>{{ libro.autor }}</td>
+            <td>{{ libro.editorial }}</td>
+            <td>{{ libro.fecha_publicacion }}</td>
+            <td>{{ libro.disponible|yesno:"Sí,No" }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
