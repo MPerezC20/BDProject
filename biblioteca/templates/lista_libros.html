@@ -8,18 +8,18 @@
     <h1>Catálogo de Libros</h1>
     <table border="1">
         <tr>
+            <th>ISBN</th>
             <th>Título</th>
             <th>Autor</th>
             <th>Editorial</th>
-            <th>Fecha</th>
             <th>Disponible</th>
         </tr>
         {% for libro in libros %}
         <tr>
+            <td>{{ libro.isbn }}</td>
             <td>{{ libro.titulo }}</td>
             <td>{{ libro.autor }}</td>
             <td>{{ libro.editorial }}</td>
-            <td>{{ libro.fecha_publicacion }}</td>
             <td>{{ libro.disponible|yesno:"Sí,No" }}</td>
         </tr>
         {% endfor %}

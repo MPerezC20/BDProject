@@ -82,13 +82,14 @@ WSGI_APPLICATION = 'Serenti.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':  'prueba',
+        'NAME': 'BDlibreria',          # ← el nombre real de tu BD
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': '1-3-2005Ashley', # ← tu contraseña real de MySQL
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }
 }
+
 
 
 # Password validation
