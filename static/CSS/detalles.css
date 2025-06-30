@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@300;400&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jua&family=Outfit:wght@100..900&display=swap');
+
+/* Base Styles */
+body {
+    background-color: #f7eeee;
+    min-height: 100vh;
+    font-family: 'Outfit', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.section-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Top Row: 3 columns (Atrás | Título | Género) */
+.book-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+    padding-right: 1.8rem;
+}
+
+.book-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #404040;
+}
+
+.book-header .borde-gen {
+    font-size: 1rem;
+    font-weight: 200;
+    color: #404040;
+    padding: 10px 20px;
+    border: 2px solid #AD95C3;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.btn-back{
+    color: #A176C9;
+    font-weight: 500;
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Content: 2 Columns (Imagen | Info) */
+.book-content {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.book-content img {
+    width: 300px;
+    height: 460px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.book-info p {
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.book-info .descripcion {
+    margin-top: 1.5rem;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+/* CTA for login/register */
+.login-prompt {
+    text-align: center;
+    margin-top: 20px;
+    color: #248F8B;
+    font-size: 14px;
+}
+
+.login-prompt a {
+    color: rgb(41, 117, 131);
+    text-decoration: underline;
+    font-weight: 500;
+}

@@ -3,7 +3,7 @@
 /* Base Container for the entire registration page content */
 .register-page-container {
     display: flex;
-    background-color: #f7eeee;
+    background-color: #ffffff;
     overflow: hidden;
     margin: 10px auto;
 }

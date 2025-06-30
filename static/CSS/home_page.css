@@ -117,22 +117,52 @@ li {
 
 .featured-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
 }
 
 .featured-item {
-    background: #f9f9f9;
+    background: #DAD4BA;
     border-radius: 12px;
-    padding: 1.5rem;
+    padding: 1.2rem;
     transition: all 0.3s ease;
-    border: 1px solid #e2e8f0;
+    border: 2px solid #b6b19b;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
 }
 
 .featured-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.featured-item img {
+    width: 150px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.featured-item .descripcion {
+    text-align: justify;
+}
+
+.featured-item > div {
+    flex: 1;
+}
+
+/* Opcional: para que título y texto no estén pegados */
+.featured-item h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.featured-item p {
+    margin-top: 0.2rem;
+    margin-bottom: 0.8rem;
 }
 
 /* Info Section */
@@ -222,15 +252,16 @@ li {
 
 .category-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 2.5rem;
     margin-top: 2rem;
 }
 
 .category-item {
+    align-items: center;
     background: white;
     border-radius: 10px;
-    padding: 1.5rem;
+    padding: 1rem;
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     border: 2px solid #248F8B;

@@ -3,12 +3,5 @@
 {% block title %}Panel de Usuario{% endblock %}
 
 {% block content %}
-    <h1>Bienvenido, {{ user.username }}!</h1>
-    <p>Este es tu panel de control personal.</p>
-    <ul>
-        <li><a href="#">Ver perfil</a></li>
-        <li><a href="#">Editar información</a></li>
-    </ul>
-    <p><a href="{% url 'logout' %}">Cerrar Sesión</a></p>
-    <p><a href="{% url 'home_page' %}">Volver al inicio</a></p>
+    
 {% endblock %}

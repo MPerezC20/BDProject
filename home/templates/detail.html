@@ -1,9 +1,42 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Detalle del Ítem{% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/detalles.css' %}">
+{% endblock %}
+
+{% block title %}{{ item.titulo }} - Detalles{% endblock %}
 
 {% block content %}
-    <h1>{{ item.name }}</h1>
-    <p>{{ item.description }}</p>
-    <p><a href="{% url 'directory' %}">Volver al Directorio</a></p>
+<section class="book-detail">
+    <div class="section-content">
+        <!-- Encabezado de 3 columnas -->
+        <div class="book-header">
+            {% if page_from == 'home' %}
+                <a href="{% url 'home_page' %}" class="btn-back">< Atrás</a>
+            {% else %}
+                <a href="{% url 'directory' %}" class="btn-back">< Atrás</a>
+            {% endif %}
+            <h1>{{ item.titulo }}</h1>
+            <p class="borde-gen"><strong>{{ item.genero }}</strong></p>
+        </div>
+
+        <!-- Contenido de 2 columnas -->
+        <div class="book-content">
+            {% if item.portadaurl %}
+                <img src="{{ item.portadaurl }}" alt="Portada de {{ item.titulo }}">
+            {% endif %}
+            <div class="book-info">
+                <p><strong>Autor:</strong> {{ item.autor }}</p>
+                <p><strong>Editorial:</strong> {{ item.editorial }}</p>
+                <p class="descripcion"><strong>Sinopsis:</strong> {{ item.descripcion }}</p>
+
+                <p class="login-prompt">
+                    Para obtener información, <a href="{% url 'login' %}">inicia sesión</a> o 
+                    <a href="{% url 'register' %}">regístrate</a> si no tienes una cuenta.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

@@ -25,9 +25,18 @@
         <h2>Destacados</h2>
         <h3>Encuentra tu próxima lectura</h3>
         <div class="featured-grid">
-            <div class="featured-item">Item 1</div>
-            <div class="featured-item">Item 2</div>
-            <div class="featured-item">Item 3</div>
+            {% for libro in destacados %}
+            <a href="{% url 'detail' libro.isbn %}?from=home" class="featured-item" style="text-decoration: none; color: inherit;">
+                {% if libro.portadaurl %}
+                <img src="{{ libro.portadaurl }}" alt="Portada de {{ libro.titulo }}">
+                {% endif %}
+                <div>
+                    <h4>{{ libro.titulo }}</h4>
+                    <p><strong>Autor:</strong> {{ libro.autor }}</p>
+                    <p class="descripcion">{{ libro.descripcion|truncatewords:20|default:"Aquí puedes agregar una breve descripción." }}</p>
+                </div>
+            </a>
+            {% endfor %}
         </div>
     </div>
 </section>
@@ -61,15 +70,24 @@
         <p>Escapa a mundos donde todo es posible y las reglas las pone la imaginación.</p>
         <div class="category-grid">
             {% for libro in fantasia %}
-            <div class="category-item">
-                {% if libro.portadaurl %}
-                    <img src="{{ libro.portadaurl }}" alt="Portada de {{ libro.titulo }}" style="width: 150px; height: 220px; object-fit: cover; display: block; margin: 0 auto 10px;">
+                {% if libro.isbn %}
+                <a href="{% url 'detail' libro.isbn %}?from=home" class="category-item" style="text-decoration: none; color: inherit;">
+                {% else %}
+                <div class="category-item" style="pointer-events: none; opacity: 0.6;">
                 {% endif %}
-                <h4>{{ libro.titulo }}</h4>
-                <p><strong>Autor:</strong> {{ libro.autor }}</p>
-            </div>
-            {% empty %}
-            <p>No hay libros en esta categoría.</p>
+
+                    {% if libro.portadaurl %}
+                        <img src="{{ libro.portadaurl }}" alt="Portada de {{ libro.titulo }}"
+                            style="width: 150px; height: 220px; object-fit: cover; display: block; margin: 0 auto 10px;">
+                    {% endif %}
+                    <h4>{{ libro.titulo }}</h4>
+                    <p><strong>Autor:</strong> {{ libro.autor }}</p>
+
+                {% if libro.isbn %}
+                </a>
+                {% else %}
+                </div>
+                {% endif %}
             {% endfor %}
         </div>
     </div>
@@ -82,15 +100,24 @@
         <p>Para quienes buscan escalofríos elegantes.</p>
         <div class="category-grid">
             {% for libro in terror %}
-            <div class="category-item">
-                {% if libro.portadaurl %}
-                    <img src="{{ libro.portadaurl }}" alt="Portada de {{ libro.titulo }}" style="width: 150px; height: 220px; object-fit: cover; display: block; margin: 0 auto 10px;">
+            {% if libro.isbn %}
+                <a href="{% url 'detail' libro.isbn %}?from=home" class="category-item" style="text-decoration: none; color: inherit;">
+                {% else %}
+                <div class="category-item" style="pointer-events: none; opacity: 0.6;">
                 {% endif %}
-                <h4>{{ libro.titulo }}</h4>
-                <p><strong>Autor:</strong> {{ libro.autor }}</p>
-            </div>
-            {% empty %}
-            <p>No hay libros en esta categoría.</p>
+
+                    {% if libro.portadaurl %}
+                        <img src="{{ libro.portadaurl }}" alt="Portada de {{ libro.titulo }}"
+                            style="width: 150px; height: 220px; object-fit: cover; display: block; margin: 0 auto 10px;">
+                    {% endif %}
+                    <h4>{{ libro.titulo }}</h4>
+                    <p><strong>Autor:</strong> {{ libro.autor }}</p>
+
+                {% if libro.isbn %}
+                </a>
+                {% else %}
+                </div>
+                {% endif %}
             {% endfor %}
         </div>
     </div>
@@ -105,5 +132,4 @@
         </div>
     </div>
 </section>
-
 {% endblock %}
