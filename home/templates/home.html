@@ -12,8 +12,8 @@
 <!-- Sección Buscar -->
 <section class="search-section">
     <div class="section-content">
-        <form class="search-form">
-            <input type="text" placeholder="¿Qué te gustaría leer hoy?" class="search-input">
+        <form class="search-form" method="GET" action="#">
+            <input type="text" placeholder="¿Qué te gustaría leer hoy?" class="search-input" name="q">
             <button type="submit" class="search-button">Buscar</button>
         </form>
     </div>
@@ -54,26 +54,44 @@
     </div>
 </section>
 
-<!-- Sección Categoría 1 -->
+<!-- Sección Categoría: Ficción -->
 <section class="category-section category-1">
     <div class="section-content">
-        <h2>Categoría 1</h2>
+        <h2>Fantasía</h2>
+        <p>Escapa a mundos donde todo es posible y las reglas las pone la imaginación.</p>
         <div class="category-grid">
-            <div class="category-item">Item A</div>
-            <div class="category-item">Item B</div>
-            <div class="category-item">Item C</div>
+            {% for libro in fantasia %}
+            <div class="category-item">
+                {% if libro.portadaurl %}
+                    <img src="{{ libro.portadaurl }}" alt="Portada de {{ libro.titulo }}" style="width: 150px; height: 220px; object-fit: cover; display: block; margin: 0 auto 10px;">
+                {% endif %}
+                <h4>{{ libro.titulo }}</h4>
+                <p><strong>Autor:</strong> {{ libro.autor }}</p>
+            </div>
+            {% empty %}
+            <p>No hay libros en esta categoría.</p>
+            {% endfor %}
         </div>
     </div>
 </section>
 
-<!-- Sección Categoría 2 -->
+<!-- Sección Categoría: Clásico -->
 <section class="category-section category-2">
     <div class="section-content">
-        <h2>Categoría 2</h2>
+        <h2>Terror</h2>
+        <p>Para quienes buscan escalofríos elegantes.</p>
         <div class="category-grid">
-            <div class="category-item">Item X</div>
-            <div class="category-item">Item Y</div>
-            <div class="category-item">Item Z</div>
+            {% for libro in terror %}
+            <div class="category-item">
+                {% if libro.portadaurl %}
+                    <img src="{{ libro.portadaurl }}" alt="Portada de {{ libro.titulo }}" style="width: 150px; height: 220px; object-fit: cover; display: block; margin: 0 auto 10px;">
+                {% endif %}
+                <h4>{{ libro.titulo }}</h4>
+                <p><strong>Autor:</strong> {{ libro.autor }}</p>
+            </div>
+            {% empty %}
+            <p>No hay libros en esta categoría.</p>
+            {% endfor %}
         </div>
     </div>
 </section>

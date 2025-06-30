@@ -31,23 +31,20 @@
     </div>
 
     <footer class="main-footer">
-        <div class="footer-wave-container">
-            <div class="footer-content-wrapper">
-                <div class="footer-brand-info">
-                    <div class="footer-text">
-                        <span class="footer-brand" style="margin-top: 60px;">Serenti</span> <!-- Añadido estilo inline para más espacio -->
-                    </div>
-                </div>
-                <div class="footer-nav">
-                    <ul>
-                        <li><a class="nav-link" href="{% url 'home_page' %}">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a class="nav-link" href="{% url 'directory' %}#features-section">Directorio</a></li>
-                    </ul>
+        <div class="footer-content-wrapper">
+            <div class="footer-brand-info">
+                <div class="footer-text">
+                    <span class="footer-brand">Serenti</span>
                 </div>
             </div>
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="{% url 'home_page' %}">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="{% url 'directory' %}#features-section">Directorio</a></li>
+                </ul>
+            </nav>
         </div>
-        <hr class="footer-divider">
         <p class="footer-copyright">© SoulTrack 2025. All rights reserved</p>
     </footer>
 </body>

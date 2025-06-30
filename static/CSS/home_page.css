@@ -2,7 +2,7 @@
 
 /* Base Styles */
 body {
-    background-color: #FFF5EA;
+    background-color: #f7eeee;
     min-height: 100vh;
 }
 
@@ -25,6 +25,14 @@ h3 {
     font-size: 1rem;
     margin-bottom: 1rem;
     color: #808080;
+}
+
+h4 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #000000;
 }
 
 p {
@@ -69,12 +77,14 @@ li {
 }
 
 .search-form {
-    max-width: 700px;
-    margin: 2rem auto 0;
-    display: flex;
+    margin: 0 auto 0;
     border-radius: 50px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: flex;
+    border: none;
+    flex-grow: 1;
+    max-width: 600px;
 }
 
 .search-input {
@@ -199,7 +209,7 @@ li {
 }
 /* Category Sections */
 .category-section {
-    padding: 4rem 0;
+    padding: 2rem 0;
 }
 
 .category-1 {
@@ -213,7 +223,7 @@ li {
 .category-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5rem;
+    gap: 2.5rem;
     margin-top: 2rem;
 }
 
@@ -223,7 +233,7 @@ li {
     padding: 1.5rem;
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    border: 1px solid #e2e8f0;
+    border: 2px solid #248F8B;
 }
 
 .category-item:hover {

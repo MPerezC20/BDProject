@@ -24,16 +24,19 @@
     </section>
 
     {% if directory_items %}
-        {% for category, items in directory_items.items %}
-            <section class="category-section {{ category|slugify }}">
+        {% for genero, libros in directory_items.items %}
+            <section class="category-section {{ genero|slugify }}">
                 <div class="section-content">
-                    <h2>{{ category }}</h2>
+                    <h2>{{ genero }}</h2>
                     <div class="category-grid">
-                        {% for item in items %}
-                            <div class="category-item">
-                                <a href="{% url 'detail' item.id %}">{{ item.name }}</a><br>
-                                <small>{{ item.description }}</small>
-                            </div>
+                        {% for libro in libros %}
+                        <div class="category-item">
+                            {% if libro.portadaurl %}
+                                <img src="{{ libro.portadaurl }}" alt="Portada de {{ libro.titulo }}" style="width: 150px; height: 220px; object-fit: cover; display: block; margin: 0 auto 10px;">
+                            {% endif %}
+                            <h4>{{ libro.titulo }}</h4>
+                            <p><strong>Autor:</strong> {{ libro.autor }}</p>
+                        </div>
                         {% endfor %}
                     </div>
                 </div>
@@ -42,7 +45,7 @@
     {% else %}
         <section class="category-section">
             <div class="section-content">
-                <p>No hay elementos en el directorio.</p>
+                <p>No hay libros disponibles en el directorio.</p>
             </div>
         </section>
     {% endif %}

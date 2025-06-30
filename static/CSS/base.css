@@ -4,7 +4,7 @@
 body {
     margin: 0;
     font-family: 'Outfit', Arial, sans-serif;
-    background-color: #f8f8f8;
+    background-color: #f7eeee;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -101,79 +101,37 @@ body {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    font-family: 'Outfit', sans-serif;
 }
 
+/* Footer corregido */
 .main-footer {
-    background-color: #6A9096; 
-    padding-bottom: 20px; 
-    position: relative;
-    width: 100%;
-}
-
-.footer-wave-container {
-    background-color: #79A1A9;
-    padding: 60px 40px; 
-    position: relative;
-    overflow: hidden;
-}
-
-.main-footer {
-    background-image: url('/static/images/ondas.png');
-    background-repeat: no-repeat;
+    background-image: url('../images/on.png');
     background-size: cover;
-    background-position: center bottom;
-    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 60px 0 30px;
     position: relative;
     width: 100%;
+    color: white;
 }
 
-.footer-wave-container {
-    background-color: transparent;
-    padding: 40px 40px 30px 40px;
-    position: relative;
-    z-index: 1;
-}
-
-/* Contenedor Flex para el contenido dentro de la onda */
 .footer-content-wrapper {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    flex-wrap: wrap;
+    padding: 0 40px;
     position: relative;
-    z-index: 1;
-}
-
-/* Sección de la Marca e Información (izquierda) */
-.footer-brand-info {
-    padding-top: 0px; /* Más espacio arriba del texto */
-    margin-bottom: 0px;
-}
-
-.footer-text {
-    display: flex;
-    flex-direction: column;
+    z-index: 2;
 }
 
 .footer-brand {
-    color: #ffffff;
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'Outfit', sans-serif;
     font-size: 28px;
     font-weight: 500;
-    margin-bottom: 0px;
     text-decoration: none;
-}
-
-/* Navegación del Footer (derecha) */
-.footer-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex: 1;
-    max-width: 400px;
+    color: white;
 }
 
 .footer-nav ul {
@@ -186,25 +144,23 @@ body {
 
 .footer-nav ul li a {
     text-decoration: none;
-    color: #ffffff;
+    color: white;
     font-family: 'Hind Vadodara', sans-serif;
     font-size: 16px;
     font-weight: 500;
-    transition: color 0.2s ease;
-    white-space: nowrap;
+    transition: color 0.3s ease;
 }
 
 .footer-nav ul li a:hover {
-    color: #364368;
+    color: #2b2630; /* Morado claro para hover */
 }
 
-/* Texto de Copyright */
 .footer-copyright {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.7);
     font-family: 'Hind Vadodara', sans-serif;
     font-size: 13px;
     text-align: center;
-    margin-bottom: 0;
+    margin-top: 10px;
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }

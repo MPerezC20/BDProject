@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@300;400&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jua&family=Outfit:wght@100..900&display=swap');
 
 body {
-    background-color: #FFF5EA;
+    background-color: #f7eeee;
 }
 
 .directory-page .section-content {
@@ -89,9 +89,10 @@ body {
 }
 
 .directory-page .category-grid {
+    margin-bottom: 2rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 4rem;
 }
 
 .directory-page .category-item {
@@ -99,7 +100,7 @@ body {
     padding: 1rem;
     border-radius: 8px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    border: 1px solid #248F8B;
+    border: 2px solid #248F8B;
 }
 
 .directory-page .category-item:hover {
@@ -145,7 +146,7 @@ body {
     text-align: center;
     color: #404040;
     margin: 0;
-    padding-bottom: 1rem;
+    padding-bottom: 3rem;
 }
 
 @media (max-width: 768px) {
