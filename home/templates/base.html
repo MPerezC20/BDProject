@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,29 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Serenti{% endblock %}</title>
 
+    <!-- Estilos principales -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/side.css' %}">
+
+    <!-- Font Awesome actualizada -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-vWf4cRUYJDeUvXLZExVUfuTfq1n2dPv2TWyUdaZ1LrJ/2k8ePvCGlA5XUqu9XvG5oKH8ElB1zYMGjKg63qVZ3Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Estilo adicional si el usuario está autenticado -->
+    {% if user.is_authenticated %}
+        <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+    {% endif %}
 
     {% block extra_css %}{% endblock %}
 </head>
 <body>
-    <header class="navbar">
-        <a href="{% url 'home_page' %}" class="logo">Serenti</a>
+    {% if user.is_authenticated %}
+        <header>
+            <aside class="sidebar">
+                <a href="{% url 'home_page' %}" class="sidebar-logo">Serenti</a>
+                <nav class="sidebar-nav">
+                    <ul>
+                        <li><strong>{{ user.username }}</strong></li>
+                        <li><a href="#"><i class="fa-brands fa-gitlab"></i> Cuenta</a></li>
+                        <li><a href="#"><i class="fa-solid fa-bag-shopping"></i> Compras</a></li>
+                        <li><a href="#"><i class="fa-solid fa-star"></i> Favoritos</a></li>
+                        <li><a href="#"><i class="fa-solid fa-gear"></i> Ajustes</a></li>
+                        <li><a href="{% url 'logout' %}"><i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión</a></li>
+                    </ul>
+                </nav>
+            </aside>
+        </header>
+        <div class="auth-container">
+    {% else %}
+        <header class="navbar">
+            <a href="{% url 'home_page' %}" class="logo">Serenti</a>
+            <ul class="navbar-links">
+                <li><a href="{% url 'home_page' %}">Inicio</a></li>
+                <li><a href="{% url 'directory' %}">Directorio</a></li>
+            </ul>
+            <div class="navbar-buttons">
+                <a href="{% url 'register' %}" class="btn btn-register">Regístrate</a>
+                <a href="{% url 'login' %}" class="btn btn-login">Iniciar Sesión</a>
+            </div>
+        </header>
+        <div class="container mt-4">
+    {% endif %}
 
-        <ul class="navbar-links">
-            <li><a href="{% url 'home_page' %}">Inicio</a></li>
-            <li><a href="{% url 'directory' %}">Directorio</a></li>
-        </ul>
-
-        <div class="navbar-buttons">
-            <a href="{% url 'register' %}" class="btn btn-register">Regístrate</a>
-            <a href="{% url 'login' %}" class="btn btn-login">Iniciar Sesión</a>
-        </div>
-    </header>
-
-    <div class="container mt-4">
         {% block content %}{% endblock %}
     </div>
 
+    {% if not user.is_authenticated %}
     <footer class="main-footer">
         <div class="footer-content-wrapper">
             <div class="footer-brand-info">
@@ -47,5 +74,6 @@
         </div>
         <p class="footer-copyright">© SoulTrack 2025. All rights reserved</p>
     </footer>
+    {% endif %}
 </body>
 </html>

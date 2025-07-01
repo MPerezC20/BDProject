@@ -1,0 +1,63 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 100vh;
+    background-color: #EEFFFE;
+    color: white;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.1);
+}
+
+.sidebar-logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    font-family: 'Outfit', sans-serif;
+    color: #A176C9;
+    text-decoration: none;
+    margin-bottom: 30px;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.sidebar-nav ul li {
+    width: 100%;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.sidebar-nav ul li a i {
+    margin-right: 8px;
+    width: 18px;
+    text-align: center;
+}
+
+.sidebar-nav ul li a,
+.sidebar-nav ul li strong {
+    color: #4C5251;
+    font-family: 'Outfit', sans-serif;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 400;
+    display: block;
+    padding: 10px 0;
+    transition: background-color 0.3s;
+}
+
+.sidebar-nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.auth-container {
+    margin-left: 240px;
+    padding: 20px;
+}
