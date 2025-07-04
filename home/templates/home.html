@@ -96,6 +96,64 @@
 <!-- Sección Categoría: Clásico -->
 <section class="category-section category-2">
     <div class="section-content">
+        <h2>Clásico</h2>
+        <p>Sumérgete en las obras que han marcado la historia de la literatura.</p>
+        <div class="category-grid">
+            {% for libro in clasico %}
+            {% if libro.isbn %}
+                <a href="{% url 'detail' libro.isbn %}?from=home" class="category-item" style="text-decoration: none; color: inherit;">
+            {% else %}
+                <div class="category-item" style="pointer-events: none; opacity: 0.6;">
+            {% endif %}
+
+                {% if libro.portadaurl %}
+                    <img src="{{ libro.portadaurl }}" alt="Portada de {{ libro.titulo }}"
+                        style="width: 150px; height: 220px; object-fit: cover; display: block; margin: 0 auto 10px;">
+                {% endif %}
+                <h4>{{ libro.titulo }}</h4>
+                <p><strong>Autor:</strong> {{ libro.autor }}</p>
+
+            {% if libro.isbn %}
+                </a>
+            {% else %}
+                </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="category-section category-2">
+    <div class="section-content">
+        <h2>Suspenso</h2>
+        <p>Amantes del misterio</p>
+        <div class="category-grid">
+            {% for libro in suspenso %}
+            {% if libro.isbn %}
+                <a href="{% url 'detail' libro.isbn %}?from=home" class="category-item" style="text-decoration: none; color: inherit;">
+            {% else %}
+                <div class="category-item" style="pointer-events: none; opacity: 0.6;">
+            {% endif %}
+
+                {% if libro.portadaurl %}
+                    <img src="{{ libro.portadaurl }}" alt="Portada de {{ libro.titulo }}"
+                        style="width: 150px; height: 220px; object-fit: cover; display: block; margin: 0 auto 10px;">
+                {% endif %}
+                <h4>{{ libro.titulo }}</h4>
+                <p><strong>Autor:</strong> {{ libro.autor }}</p>
+
+            {% if libro.isbn %}
+                </a>
+            {% else %}
+                </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="category-section category-2">
+    <div class="section-content">
         <h2>Terror</h2>
         <p>Para quienes buscan escalofríos elegantes.</p>
         <div class="category-grid">
@@ -122,6 +180,65 @@
         </div>
     </div>
 </section>
+
+<section class="category-section category-2">
+    <div class="section-content">
+        <h2>Infantil</h2>
+        <p>Para quienes buscan cuentos infantiles </p>
+        <div class="category-grid">
+            {% for libro in infantil %}
+            {% if libro.isbn %}
+                <a href="{% url 'detail' libro.isbn %}?from=home" class="category-item" style="text-decoration: none; color: inherit;">
+                {% else %}
+                <div class="category-item" style="pointer-events: none; opacity: 0.6;">
+                {% endif %}
+
+                    {% if libro.portadaurl %}
+                        <img src="{{ libro.portadaurl }}" alt="Portada de {{ libro.titulo }}"
+                            style="width: 150px; height: 220px; object-fit: cover; display: block; margin: 0 auto 10px;">
+                    {% endif %}
+                    <h4>{{ libro.titulo }}</h4>
+                    <p><strong>Autor:</strong> {{ libro.autor }}</p>
+
+                {% if libro.isbn %}
+                </a>
+                {% else %}
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="category-section category-2">
+    <div class="section-content">
+        <h2>Ficcion</h2>
+        <p>Los que gustan la adrenalina </p>
+        <div class="category-grid">
+            {% for libro in ficcion %}
+            {% if libro.isbn %}
+                <a href="{% url 'detail' libro.isbn %}?from=home" class="category-item" style="text-decoration: none; color: inherit;">
+                {% else %}
+                <div class="category-item" style="pointer-events: none; opacity: 0.6;">
+                {% endif %}
+
+                    {% if libro.portadaurl %}
+                        <img src="{{ libro.portadaurl }}" alt="Portada de {{ libro.titulo }}"
+                            style="width: 150px; height: 220px; object-fit: cover; display: block; margin: 0 auto 10px;">
+                    {% endif %}
+                    <h4>{{ libro.titulo }}</h4>
+                    <p><strong>Autor:</strong> {{ libro.autor }}</p>
+
+                {% if libro.isbn %}
+                </a>
+                {% else %}
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
 
 <!-- Sección CTA (Call to Action) -->
 <section class="cta-section">

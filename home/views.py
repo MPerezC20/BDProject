@@ -5,6 +5,10 @@ from django.shortcuts import get_object_or_404
 def home_page(request):
     fantasia = Libro.objects.filter(genero='Fantasía')
     terror = Libro.objects.filter(genero='Terror')
+    clasico = Libro.objects.filter(genero='Clásico')
+    suspenso = Libro.objects.filter(genero='Suspenso')
+    infantil = Libro.objects.filter(genero='Infantil')
+    ficcion = Libro.objects.filter(genero='Ficcion')
 
     # Traer libros por título
     titulos_destacados = ['Moby Dick', 'La chica del tren', 'Drácula']
@@ -15,6 +19,10 @@ def home_page(request):
         'header_subtitle': 'Encuentra lo que buscas aquí.',
         'fantasia': fantasia,
         'terror': terror,
+        'clasico': clasico,
+        'suspenso': suspenso,
+        'infantil': infantil,
+        'ficcion': ficcion,
         'destacados': destacados,
     }
     return render(request, 'home.html', context)
