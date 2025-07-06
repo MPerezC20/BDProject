@@ -2,15 +2,15 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 180px; 
+    width: 140px; 
     height: 100vh;
-    background-color: #EEFFFE;
+    background-color: #e5f7f5;
     padding-top: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 1000;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
 }
 
 .sidebar-logo {
@@ -65,7 +65,7 @@
   text-decoration: none;
   padding: 10px 20px;
   transition: background-color 0.3s;
-  margin-top: 160px;
+  margin-top: 200px;
 }
 
 .logout a:hover {
@@ -77,24 +77,25 @@
 .sidebar-nav ul li strong {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     padding: 10px 20px;
     color: #4C5251;
     font-family: 'Outfit', sans-serif;
     text-decoration: none;
     font-size: 1em;
+    right: 0;
     font-weight: 400;
     transition: background-color 0.3s;
 }
 
 .sidebar-nav ul li a i {
     font-size: 1.1em;
-    min-width: 18px;
+    min-width: 10px;
     text-align: center;
     color: #4C5251;
 }
 
 .auth-container {
-    margin-left: 180px; /* Ajustado para que no quede pegado al sidebar */
-    padding: 20px;
+    margin-left: 160px;
+    padding: 10px;
 }

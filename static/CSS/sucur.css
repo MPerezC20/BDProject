@@ -1,0 +1,64 @@
+.sucursal-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #443f3c;
+}
+
+.sucursal-header {
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    gap: 300px;
+    margin-left: 0;
+    margin-right: 20px;
+}
+
+.sucursal-header h1 {
+    margin: 0;
+    color: #3b3836;
+}
+
+.sucursal-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.sucursal-table th{
+    background-color: #248F8B;
+}
+
+.sucursal-table th,
+.sucursal-table td {
+    border: 2px solid #000000;
+    padding: 10px;
+    color: #2e2c2b;
+    text-align: center;
+}
+
+.btn-back {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #248F8B;
+    border: none;
+    padding: 8px 16px;
+}
+
+.cta-footer {
+    margin-top: 230px;
+    text-align: center;
+    margin-right: 40px;
+}
+
+.btn-footer {
+    font-size: 1.8em;
+    font-weight: bold;
+    font-family: 'Outfit', sans-serif;
+    color: #A176C9;
+    text-decoration: none;
+    padding: 8px 20px;
+    cursor: pointer;
+    display: inline-block;
+}

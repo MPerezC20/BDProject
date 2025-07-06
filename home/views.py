@@ -36,17 +36,25 @@ def home_page(request):
     return render(request, 'home.html', context)
 
 def directory(request):
-    # Agrupa los libros por género
+    query = request.GET.get('q', '').strip()
     libros = Libro.objects.all()
-    generos = ['Ficción', 'Clásico', 'Infantil','Terror', 'Suspenso', 'Fantasía', 'Romance', 'Poesía', 'Clásico griego', 'Experimental']
 
-    grouped_items = {}
-    for genero in generos:
-        grouped_items[genero] = libros.filter(genero=genero)
+    if query:
+        # Filtra libros por el título
+        resultados = libros.filter(titulo__icontains=query)
+        context = {
+            'search_query': query,
+            'resultados': resultados,
+        }
+    else:
+        # Muestra libros agrupados por género
+        generos = ['Ficción', 'Clásico', 'Infantil', 'Terror', 'Suspenso',
+                   'Fantasía', 'Romance', 'Poesía', 'Clásico griego', 'Experimental']
+        grouped_items = {genero: libros.filter(genero=genero) for genero in generos}
+        context = {
+            'directory_items': grouped_items
+        }
 
-    context = {
-        'directory_items': grouped_items
-    }
     return render(request, 'directory.html', context)
 
 def detail(request, isbn):

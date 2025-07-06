@@ -13,9 +13,9 @@
         <!-- Encabezado de 3 columnas -->
         <div class="book-header">
             {% if page_from == 'dashboard' %}
-                <a href="{% url 'dashboard' %}" class="btn-back">< Atrás</a>
+                <a href="{% url 'dashboard' %}" class="btn-back">< Volver</a>
             {% else %}
-                <a href="{% url 'userDirectory' %}" class="btn-back">< Atrás</a>
+                <a href="{% url 'userDirectory' %}" class="btn-back">< Volver</a>
             {% endif %}
             <h1>{{ item.titulo }}</h1>
             <p class="borde-gen"><strong>{{ item.genero }}</strong></p>
@@ -29,7 +29,7 @@
             <div class="book-info">
                 <p><strong>Autor:</strong> {{ item.autor }}</p>
                 <p><strong>Editorial:</strong> {{ item.editorial }}</p>
-                <p class="descripcion"><strong>Sinopsis:</strong> {{ item.descripcion }}</p>
+                <p class="descripcionUSER"><strong>Sinopsis:</strong> {{ item.descripcion }}</p>
 
                 <div class="book-actions">
                     <div class="action-left">
@@ -38,7 +38,7 @@
                     </div>
                     <div class="action-right">
                         <p class="action-title">Encuéntralos en físico</p>
-                        <a href="#" class="btn sucursales">Ver sucursales</a>
+                        <a href="{% url 'ver_sucursales_libro' item.isbn %}" class="btn sucursales">Ver sucursales</a>
                     </div>
                 </div>
             </div>

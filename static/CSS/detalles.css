@@ -9,10 +9,19 @@ body {
     padding: 0;
 }
 
+.book-info .descripcionUSER {
+    margin-top: 1.5rem;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: justify;
+    margin-right: 40px;
+}
+
 .book-actions {
     display: flex;
     justify-content: space-between;
-    gap: 35rem;
+    gap: 20px;
+    margin-right: 50px;
     margin-top: 2rem;
 }
 
@@ -61,6 +70,7 @@ body {
 
 .cta-footer {
     text-align: center;
+    margin-right: 40px;
 }
 
 /* Botón sin subrayado */
@@ -73,6 +83,7 @@ body {
     padding: 8px 20px;
     cursor: pointer;
     display: inline-block;
+    margin-right: 50px;
 }
 
 .section-content {
@@ -116,7 +127,6 @@ body {
     font-family: 'Outfit', sans-serif;
 }
 
-/* Content: 2 Columns (Imagen | Info) */
 .book-content {
     display: grid;
     grid-template-columns: 1fr 4fr;

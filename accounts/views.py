@@ -3,28 +3,32 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm, CustomAuthenticationForm, CustomUserChangeForm
 from django.shortcuts import render, get_object_or_404
-from home.models import Libro, Inventario
+from home.models import Libro
+from home.models import VistaInventarioCompleto
+from django.contrib.auth.decorators import login_required
 
-def ver_sucursales(request, isbn):
+
+@login_required
+def ver_sucursales_libro(request, isbn):
     libro = get_object_or_404(Libro, isbn=isbn)
-    inventario = Inventario.objects.select_related('id_local').filter(libro=libro)
+    inventario = VistaInventarioCompleto.objects.filter(isbn=isbn)
 
-    return render(request, 'ver_sucursales.html', {
+    context = {
         'libro': libro,
         'inventario': inventario
-    })
+    }
+    return render(request, 'sucursales_libro.html', context)
 
 def register_view(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.email = form.cleaned_data['email']  # Asegura el guardado del email
+            user.email = form.cleaned_data['email']
             user.save()
             login(request, user)
             return redirect('dashboard')
         else:
-            # Imprime errores en consola para diagnóstico
             print(form.errors)  
     else:
         form = CustomUserCreationForm()
@@ -42,7 +46,6 @@ def user_login(request):
                 login(request, user)
                 return redirect('dashboard')
             else:
-                # Opcional: Añadir un mensaje de error si la autenticación falla
                 form.add_error(None, "Nombre de usuario o contraseña incorrectos.")
     else:
         form = CustomAuthenticationForm()
@@ -50,6 +53,13 @@ def user_login(request):
 
 @login_required
 def dashboard(request):
+    search_query = request.GET.get('q', '').strip()
+    
+    if search_query:
+        resultados = Libro.objects.filter(titulo__icontains=search_query)
+    else:
+        resultados = None
+
     fantasia = Libro.objects.filter(genero='Fantasía')
     terror = Libro.objects.filter(genero='Terror')
     clasico = Libro.objects.filter(genero='Clásico')
@@ -57,9 +67,7 @@ def dashboard(request):
     infantil = Libro.objects.filter(genero='Infantil')
     ficcion = Libro.objects.filter(genero='Ficcion')
 
-    # Traer libros por título
-    titulos_destacados = ['Moby Dick', 'La chica del tren', 'Drácula']
-    destacados = Libro.objects.filter(titulo__in=titulos_destacados)
+    destacados = Libro.objects.filter(titulo__in=['Moby Dick', 'La chica del tren', 'Drácula'])
 
     context = {
         'header_title': '¡Bienvenido a Mi Directorio!',
@@ -71,22 +79,28 @@ def dashboard(request):
         'infantil': infantil,
         'ficcion': ficcion,
         'destacados': destacados,
+        'search_query': search_query,
+        'resultados': resultados,
     }
-    context['user'] = request.user
     return render(request, 'dashboard.html', context)
 
 @login_required
 def userDirectory(request):
-    # Agrupa los libros por género
+    query = request.GET.get('q', '').strip()
     libros = Libro.objects.all()
-    generos = ['Ficción', 'Clásico', 'Infantil','Terror', 'Suspenso', 'Fantasía']
 
+    if query:
+        libros = libros.filter(titulo__icontains=query)
+
+    generos = ['Ficción', 'Clásico', 'Infantil', 'Terror', 'Suspenso', 'Fantasía', 'Romance', 'Poesía', 'Experimental', 'Clásico griego']
+    
     grouped_items = {}
     for genero in generos:
         grouped_items[genero] = libros.filter(genero=genero)
 
     context = {
-        'directory_items': grouped_items
+        'directory_items': grouped_items,
+        'search_query': query
     }
     return render(request, 'userDirectory.html', context)
 
@@ -112,7 +126,6 @@ def edit_profile(request):
         form = CustomUserChangeForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            # Redirige al perfil después de guardar cambios
             return redirect('ver_perfil')
     else:
         form = CustomUserChangeForm(instance=request.user)
@@ -121,4 +134,4 @@ def edit_profile(request):
 
 def user_logout(request):
     logout(request)
-    return redirect('home_page') # Redirige a la página de inicio después del logout
+    return redirect('home_page')

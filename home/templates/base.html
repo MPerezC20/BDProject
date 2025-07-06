@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Serenti{% endblock %}</title>
 
+      <link rel="icon" href="{% static 'images/ICON.png' %}" type="image/x-icon" />
+
     <!-- Estilos principales -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="{% static 'css/side.css' %}">
@@ -33,9 +35,9 @@
                         <li><a href="{% url 'ver_perfil' %}"><i class="fab fa-gitlab"></i> Cuenta</a></li>
                         <li><a href="{% url 'dashboard' %}"><i class="fas fa-star"></i> Inicio</a></li>
                         <li><a href="{% url 'userDirectory' %}"><i class="fas fa-bag-shopping"></i> Directorio</a></li>
-                        <li><a href="#"><i class="fas fa-bookmark"></i> Guardados</a></li>
+                        <!--<li><a href="#"><i class="fas fa-bookmark"></i> Guardados</a></li>!-->
                         <li class="logout">
-                        <a href="{% url 'logout' %}"><i class="fas fa-right-from-bracket"></i> Cerrar Sesión</a>
+                        <a href="{% url 'logout' %}"><i class="fas fa-right-from-bracket"></i> Salir</a>
                         </li>
                     </ul>
                 </nav>

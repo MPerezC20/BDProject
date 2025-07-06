@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
 {% endblock %}
 
-{% block title %}Inicio - Serenti{% endblock %}
+{% block title %}Dashboard - Serenti{% endblock %}
 
 {% block content %}
 <div class="dashboard-wrapper">
@@ -18,8 +18,8 @@
                     <h1>¡Hola {{ user.username }}!</h1>
                 </div>
                 <div class="search-item">
-                    <form class="search-form" method="GET" action="#">
-                        <input type="text" placeholder="¿Qué te gustaría leer hoy?" class="search-input" name="q">
+                    <form class="search-form" method="GET" action="{% url 'dashboard' %}">
+                        <input type="text" placeholder="¿Qué te gustaría leer hoy?" class="search-input" name="q" value="{{ search_query }}">
                         <button type="submit" class="search-button">Buscar</button>
                     </form>
                 </div>
@@ -30,6 +30,30 @@
         </div>
     </section>
 
+    {% if resultados %}
+    <!-- Resultados de búsqueda -->
+    <section class="search-results">
+        <div class="section-content">
+            <h2>Resultados para "{{ search_query }}"</h2>
+            {% if resultados %}
+                <div class="category-grid">
+                    {% for libro in resultados %}
+                        <a href="{% url 'Detalle' libro.isbn %}?from=dashboard" class="category-item" style="text-decoration: none; color: inherit;">
+                            {% if libro.portadaurl %}
+                                <img src="{{ libro.portadaurl }}" alt="Portada de {{ libro.titulo }}" style="width: 150px; height: 220px; object-fit: cover;">
+                            {% endif %}
+                            <h4>{{ libro.titulo }}</h4>
+                            <p><strong>Autor:</strong> {{ libro.autor }}</p>
+                        </a>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>No se encontraron resultados para tu búsqueda.</p>
+            {% endif %}
+        </div>
+    </section>
+
+    {% else %}
     <!-- Sección Destacados -->
     <section class="featured-section">
         <div class="section-content">
@@ -44,7 +68,7 @@
                     <div>
                         <h4>{{ libro.titulo }}</h4>
                         <p><strong>Autor:</strong> {{ libro.autor }}</p>
-                        <p class="descripcion">{{ libro.descripcion|truncatewords:20|default:"Aquí puedes agregar una breve descripción." }}</p>
+                        <p class="descripcion">{{ libro.descripcion|truncatewords:8|default:"Aquí puedes agregar una breve descripción." }}</p>
                     </div>
                 </a>
                 {% endfor %}
@@ -54,31 +78,21 @@
 
     <!-- Categoría: Fantasía -->
     <section class="category-section category-1">
-            <div class="section-content">
-                <div class="category-header">
+        <div class="section-content">
+            <div class="category-header">
                 <h2>Fantasía</h2>
                 <a href="{% url 'userDirectory' %}" class="btn-ver-mas">Ver más</a>
             </div>
             <p>Escapa a mundos donde todo es posible y las reglas las pone la imaginación.</p>
             <div class="category-grid">
                 {% for libro in fantasia %}
-                    {% if libro.isbn %}
                     <a href="{% url 'Detalle' libro.isbn %}?from=dashboard" class="category-item" style="text-decoration: none; color: inherit;">
-                    {% else %}
-                    <div class="category-item" style="pointer-events: none; opacity: 0.6;">
-                    {% endif %}
-
                         {% if libro.portadaurl %}
-                            <img src="{{ libro.portadaurl }}" alt="Portada de {{ libro.titulo }}" style="width: 150px; height: 220px; object-fit: cover; display: block; margin: 0 auto 10px;">
+                        <img src="{{ libro.portadaurl }}" alt="{{ libro.titulo }}" style="width: 150px; height: 220px; object-fit: cover;">
                         {% endif %}
                         <h4>{{ libro.titulo }}</h4>
                         <p><strong>Autor:</strong> {{ libro.autor }}</p>
-
-                    {% if libro.isbn %}
                     </a>
-                    {% else %}
-                    </div>
-                    {% endif %}
                 {% endfor %}
             </div>
         </div>
@@ -87,68 +101,48 @@
     <!-- Categoría: Clásico -->
     <section class="category-section category-2">
         <div class="section-content">
-            <div class="section-content">
-                <div class="category-header">
+            <div class="category-header">
                 <h2>Clásico</h2>
                 <a href="{% url 'userDirectory' %}" class="btn-ver-mas">Ver más</a>
             </div>
             <p>Sumérgete en las obras que han marcado la historia de la literatura.</p>
             <div class="category-grid">
                 {% for libro in clasico %}
-                {% if libro.isbn %}
                     <a href="{% url 'Detalle' libro.isbn %}?from=dashboard" class="category-item" style="text-decoration: none; color: inherit;">
-                {% else %}
-                    <div class="category-item" style="pointer-events: none; opacity: 0.6;">
-                {% endif %}
-
-                    {% if libro.portadaurl %}
-                        <img src="{{ libro.portadaurl }}" alt="Portada de {{ libro.titulo }}" style="width: 150px; height: 220px; object-fit: cover; display: block; margin: 0 auto 10px;">
-                    {% endif %}
-                    <h4>{{ libro.titulo }}</h4>
-                    <p><strong>Autor:</strong> {{ libro.autor }}</p>
-
-                {% if libro.isbn %}
+                        {% if libro.portadaurl %}
+                        <img src="{{ libro.portadaurl }}" alt="{{ libro.titulo }}" style="width: 150px; height: 220px; object-fit: cover;">
+                        {% endif %}
+                        <h4>{{ libro.titulo }}</h4>
+                        <p><strong>Autor:</strong> {{ libro.autor }}</p>
                     </a>
-                {% else %}
-                    </div>
-                {% endif %}
                 {% endfor %}
             </div>
         </div>
     </section>
 
     <!-- Categoría: Suspenso -->
-    <section class="category-section category-2">
+    <section class="category-section category-3">
         <div class="section-content">
-            <div class="section-content">
-                <div class="category-header">
+            <div class="category-header">
                 <h2>Suspenso</h2>
                 <a href="{% url 'userDirectory' %}" class="btn-ver-mas">Ver más</a>
             </div>
-            <p>Historias que te mantendrán al borde del asiento</p>
+            <p>Historias que te mantendrán al borde del asiento.</p>
             <div class="category-grid">
                 {% for libro in suspenso %}
-                {% if libro.isbn %}
                     <a href="{% url 'Detalle' libro.isbn %}?from=dashboard" class="category-item" style="text-decoration: none; color: inherit;">
-                {% else %}
-                    <div class="category-item" style="pointer-events: none; opacity: 0.6;">
-                {% endif %}
-
-                    {% if libro.portadaurl %}
-                        <img src="{{ libro.portadaurl }}" alt="Portada de {{ libro.titulo }}" style="width: 150px; height: 220px; object-fit: cover; display: block; margin: 0 auto 10px;">
-                    {% endif %}
-                    <h4>{{ libro.titulo }}</h4>
-                    <p><strong>Autor:</strong> {{ libro.autor }}</p>
-
-                {% if libro.isbn %}
+                        {% if libro.portadaurl %}
+                        <img src="{{ libro.portadaurl }}" alt="{{ libro.titulo }}" style="width: 150px; height: 220px; object-fit: cover;">
+                        {% endif %}
+                        <h4>{{ libro.titulo }}</h4>
+                        <p><strong>Autor:</strong> {{ libro.autor }}</p>
                     </a>
-                {% else %}
-                    </div>
-                {% endif %}
                 {% endfor %}
             </div>
         </div>
     </section>
+
+    {% endif %}
 
     <!-- CTA -->
     <section class="cta-section">

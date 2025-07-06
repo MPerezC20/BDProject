@@ -12,10 +12,29 @@
     <div class="top-bar section-content">
         <a href="{% url 'home_page' %}" class="back-button">< Atrás</a>
         <form class="search-form" method="get" action="">
-            <input type="text" placeholder="¿Qué te gustaría leer hoy?" class="search-input" name="q">
+            <input type="text" placeholder="¿Qué te gustaría leer hoy?" class="search-input" name="q" value="{{ search_query }}">
             <button type="submit" class="search-button">Buscar</button>
         </form>
     </div>
+
+    {% if resultados %}
+    <section class="category-section">
+        <div class="section-content">
+            <h2>Resultados para "{{ search_query }}"</h2>
+            <div class="category-grid">
+                {% for libro in resultados %}
+                    <a href="{% url 'detail' libro.isbn %}?from=directory" class="category-item" style="text-decoration: none; color: inherit;">
+                        {% if libro.portadaurl %}
+                            <img src="{{ libro.portadaurl }}" alt="Portada de {{ libro.titulo }}" style="width: 150px; height: 220px; object-fit: cover; display: block; margin: 0 auto 10px;">
+                        {% endif %}
+                        <h4>{{ libro.titulo }}</h4>
+                        <p><strong>Autor:</strong> {{ libro.autor }}</p>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% else %}
 
     <section class="category-section">
         <div class="section-content">
@@ -48,6 +67,7 @@
                 <p>No hay libros disponibles en el directorio.</p>
             </div>
         </section>
+    {% endif %}
     {% endif %}
 
     <section class="category-section">

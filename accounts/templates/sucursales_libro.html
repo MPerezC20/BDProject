@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/sucur.css' %}">
+{% endblock %}
+
+{% block title %}Sucursales con {{ libro.titulo }}{% endblock %}
+
+{% block content %}
+<div class="sucursal-header">
+        <a href="{% url 'Detalle' libro.isbn %}" class="btn-back">< Volver al libro</a>
+        <h1>{{ libro.titulo }}</h1>
+</div>
+<div class="sucursal-container">
+    <p><strong>Autor:</strong> {{ libro.autor }}</p>
+
+    <h2>Disponible en las siguientes sucursales:</h2>
+    {% if inventario %}
+        <table class="sucursal-table">
+            <thead>
+                <tr>
+                    <th>Sucursal</th>
+                    <th>Ubicación</th>
+                    <th>Cantidad disponible</th>
+                    <th>Costo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in inventario %}
+                <tr>
+                    <td>{{ item.nombre_local }}</td>
+                    <td>{{ item.ubicacion }}</td>
+                    <td>{{ item.cantidad_disponible }}</td>
+                    <td>${{ item.costo }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No hay ejemplares disponibles en ninguna sucursal.</p>
+    {% endif %}
+</div>
+
+<section class="cta-footer">
+        <div class="cta-serenti">
+            <a href="{% url 'dashboard' %}" class="btn-footer">Serenti</a>
+        </div>
+    </section>
+{% endblock %}
