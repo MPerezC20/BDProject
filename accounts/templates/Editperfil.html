@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/editprofile.css' %}">
+{% endblock %}
+
+{% block title %}Mi Perfil{% endblock %}
+
+{% block content %}
+<h1>Editar mi Perfil</h1>
+<div class="form-layout">
+    <div class="profile-wrapper">
+        <form method="POST" class="profile-form">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+
+            <div class="form-group">
+                <label for="id_username">Nombre de usuario</label>
+                {{ form.username }}
+            </div>
+
+            <div class="form-group">
+                <label for="id_email">Correo electrónico</label>
+                {{ form.email }}
+            </div>
+
+            <div class="form-group">
+                <label for="id_phone">Teléfono</label>
+                {{ form.phone }}
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="btn-save">Guardar cambios</button>
+                <a href="{% url 'ver_perfil' %}" class="btn-back">Descartar</a>
+            </div>
+        </form>
+    </div>
+
+    <div class="form-image">
+        <img src="{% static 'images/edit.png' %}" alt="Editar perfil">
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Mi Perfil{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+
+    <!-- Encabezado -->
+    <div class="dashboard-header">
+        <h1>Mi Perfil</h1>
+    </div>
+
+    <!-- Contenedor de tarjeta + imagen -->
+    <div class="profile-layout">
+
+        <!-- Card de perfil -->
+        <div class="profile-card">
+            <div class="profile-row">
+                <!-- Datos del usuario -->
+                <div class="profile-info">
+                    <table class="table">
+                        <tr>
+                            <th>Usuario:</th>
+                            <td>{{ user.username }}</td>
+                        </tr>
+                        <tr>
+                            <th>Email:</th>
+                            <td>{{ user.email }}</td>
+                        </tr>
+                        <tr>
+                            <th>Teléfono:</th>
+                            <td>{{ user.phone }}</td>
+                        </tr>
+                    </table>
+
+                    <!-- Botones -->
+                    <div class="button-group">
+                        <a href="{% url 'editperfil' %}" class="btn btn-primary">Editar perfil</a>
+                        <a href="{% url 'dashboard' %}" class="btn btn-secondary">Volver</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Imagen fuera del card -->
+        <div class="profile-image">
+            <img src="{% static 'images/profiles.png' %}" alt="Foto de perfil">
+        </div>
+
+    </div>
+</div>
+{% endblock %}

@@ -2,16 +2,15 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 150px;
+    width: 180px; 
     height: 100vh;
     background-color: #EEFFFE;
-    color: white;
     padding-top: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 1000;
-    box-shadow: 0 4px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar-logo {
@@ -24,40 +23,78 @@
 }
 
 .sidebar-nav ul {
-    list-style: none;
-    padding: 0;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  width: 100%;
 }
 
 .sidebar-nav ul li {
-    width: 100%;
-    text-align: center;
-    margin: 15px 0;
+  list-style: none;
+  width: 100%;
+  margin: 10px 0;
 }
 
-.sidebar-nav ul li a i {
-    margin-right: 8px;
-    width: 18px;
-    text-align: center;
+.user-centered {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #4C5251;
+}
+
+.user-centered a {
+    justify-content: center;
+    color: #4C5251;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+  margin-bottom: 30px;
+}
+
+.logout {
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+
+.logout a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #4C5251;
+  text-decoration: none;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
+  margin-top: 160px;
+}
+
+.logout a:hover {
+  background-color: rgba(161, 118, 201, 0.1);
+  border-radius: 4px;
 }
 
 .sidebar-nav ul li a,
 .sidebar-nav ul li strong {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
     color: #4C5251;
     font-family: 'Outfit', sans-serif;
     text-decoration: none;
     font-size: 1em;
     font-weight: 400;
-    display: block;
-    padding: 10px 0;
     transition: background-color 0.3s;
 }
 
-.sidebar-nav ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.15);
+.sidebar-nav ul li a i {
+    font-size: 1.1em;
+    min-width: 18px;
+    text-align: center;
+    color: #4C5251;
 }
 
 .auth-container {
-    margin-left: 240px;
+    margin-left: 180px; /* Ajustado para que no quede pegado al sidebar */
     padding: 20px;
 }

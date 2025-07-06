@@ -1,0 +1,391 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@300;400&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jua&family=Outfit:wght@100..900&display=swap');
+
+/* Base Styles */
+body {
+    background-color: #f7eeee;
+    min-height: 100vh;
+}
+
+.dashboard-wrapper {
+    padding-left: 150px;
+    margin-left: 0;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+.container {
+    width: 100%;
+    margin: 0;
+}
+
+h1 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #4C5251;
+}
+
+h2 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #404040;
+}
+
+h3 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #808080;
+}
+
+h4 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #000000;
+}
+
+p {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #555;
+}
+
+li {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #248F8B;
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Contenedor para márgenes laterales */
+.section-content {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+@media (min-width: 768px) {
+    .section-content {
+        margin-left: 1rem;
+        margin-right: 4rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .section-content {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+/* Search Section */
+.search-section {
+    padding: 0.5rem 0;
+    text-align: center;
+}
+
+.search-form {
+    margin: 0 auto 0;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: flex;
+    border: none;
+    flex-grow: 1;
+    max-width: 600px;
+}
+
+.search-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que se apilen si no hay espacio en pantallas pequeñas */
+    gap: 1.5rem;
+}
+
+.search-item {
+    flex: 1 1 10%; /* 3 columnas */
+    text-align: center;
+}
+
+.search-item a{
+    font-size: 1rem;
+    font-weight: 500;
+    color: #4C5251;
+    text-decoration: none;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    font-size: 1.1rem;
+    font-family: 'Outfit', sans-serif;
+}
+
+.search-button {
+    padding: 0 1rem;
+    background-color: #A176C9;
+    color: white;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #8a5aa8;
+}
+
+/* Featured Section */
+.featured-section {
+    padding: 2rem 0;
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.featured-item {
+    background: #DAD4BA;
+    border-radius: 12px;
+    padding: 1.2rem;
+    transition: all 0.3s ease;
+    border: 2px solid #b6b19b;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.featured-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.featured-item img {
+    width: 150px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.featured-item .descripcion {
+    text-align: justify;
+}
+
+.featured-item > div {
+    flex: 1;
+}
+
+/* Opcional: para que título y texto no estén pegados */
+.featured-item h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.featured-item p {
+    margin-top: 0.2rem;
+    margin-bottom: 0.8rem;
+}
+
+/* Info Section */
+.info-section {
+    padding: 4rem 0;
+}
+
+/* Flex container para dos columnas en info */
+.info-flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.info-text {
+    flex: 1 1 400px;
+    font-family: 'Hind Vadodara', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.info-content {
+    text-align: left;
+}
+
+.info-image {
+    flex: 1 1 400px;
+    text-align: center;
+}
+
+.info-image img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.cta-footer {
+    text-align: center;
+}
+
+/* Botón sin subrayado */
+.btn-footer {
+    font-size: 1.8em;
+    font-weight: bold;
+    font-family: 'Outfit', sans-serif;
+    color: #A176C9;
+    text-decoration: none;
+    padding: 8px 20px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.btn-login {
+    text-decoration: none;
+    background-color: #248F8B;
+    color: white;
+    font-weight: 400;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.btn-login:hover {
+    background-color: #195a58;
+}
+/* Category Sections */
+.category-section {
+    padding: 2rem 0;
+}
+
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.category-header h2 {
+    margin: 0;
+    font-size: 1.8em;
+    color: #4C5251;
+}
+
+.btn-ver-mas {
+    font-size: 0.9em;
+    background-color: #A176C9;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-ver-mas:hover {
+    background-color: #8a5aa8;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+.category-item {
+    align-items: center;
+    background: white;
+    border-radius: 10px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 2px solid #248F8B;
+}
+
+.category-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+/* CTA Section */
+.cta-section {
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.cta-section .btn {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1em;
+    font-weight: 400;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .search-form {
+        flex-direction: column;
+        border-radius: 12px;
+    }
+    .search-input {
+        border-radius: 12px 12px 0 0 !important;
+    }
+    .search-button {
+        border-radius: 0 0 12px 12px !important;
+        padding: 1rem;
+    }
+    .cta-buttons {
+        justify-content: flex-start;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    section + section {
+        border-top: 2px solid #ccc;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+    .info-flex-container {
+        flex-direction: column;
+        padding: 0 1rem;
+    }
+    .info-text, .info-image {
+        flex: 1 1 100%;
+    }
+    .info-image {
+        margin-top: 2rem;
+    }
+}

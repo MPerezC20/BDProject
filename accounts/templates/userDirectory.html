@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/userDirectory.css' %}">
+{% endblock %}
+
+{% block title %}Directorio{% endblock %}
+
+{% block content %}
+<div class="directory-page">
+    <section class="search-section">
+        <div class="section-content">
+            <div class="search-grid">
+                <div class="search-item">
+                    <a href="{% url 'dashboard' %}" class="back-button">< Volver</h1>
+                </div>
+                <div class="search-item">
+                    <form class="search-form" method="GET" action="#">
+                        <input type="text" placeholder="¿Qué te gustaría leer hoy?" class="search-input" name="q">
+                        <button type="submit" class="search-button">Buscar</button>
+                    </form>
+                </div>
+                <div class="search-item">
+                    <a href="{% url 'userDirectory' %}">Directorio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="category-section">
+        <div class="section-content">
+            <h1>Encuentra en nuestra selección</h1>
+        </div>
+    </section>
+
+    {% if directory_items %}
+        {% for genero, libros in directory_items.items %}
+            <section class="category-section {{ genero|slugify }}">
+                <div class="section-content">
+                    <h2>{{ genero }}</h2>
+                    <div class="category-grid">
+                        {% for libro in libros %}
+                        <div class="category-item" style="position: relative;">
+                                <a href="{% url 'Detalle' libro.isbn %}?from=dashboard" style="text-decoration: none; color: inherit;">
+                                    {% if libro.portadaurl %}
+                                        <img src="{{ libro.portadaurl }}" alt="Portada de {{ libro.titulo }}" style="width: 150px; height: 220px; object-fit: cover; display: block; margin: 0 auto 10px;">
+                                    {% endif %}
+                                    <h4>{{ libro.titulo }}</h4>
+                                    <p><strong>Autor:</strong> {{ libro.autor }}</p>
+                                </a>
+
+                                {% if user.is_authenticated %}
+                                    <a href="{% url 'toggle_guardado' libro.isbn %}" class="heart-icon" title="Guardar libro">
+                                        {% if libro in libros_guardados %}
+                                            💖
+                                        {% else %}
+                                            🤍
+                                        {% endif %}
+                                    </a>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+        {% endfor %}
+    {% else %}
+        <section class="category-section">
+            <div class="section-content">
+                <p>No hay libros disponibles en el directorio.</p>
+            </div>
+        </section>
+    {% endif %}
+
+    <section class="category-section">
+        <div class="section-content-bottom">
+            <h2>¿No apareceio? ¡Haz una búsqueda rápida!</h2>
+        </div>
+    </section>
+
+    <section class="cta-footer">
+        <div class="cta-serenti">
+            <a href="{% url 'dashboard' %}" class="btn-footer">Serenti</a>
+        </div>
+    </section>
+</div>
+{% endblock %}

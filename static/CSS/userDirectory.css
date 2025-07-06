@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@300;400&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jua&family=Outfit:wght@100..900&display=swap');
+
+body {
+    background-color: #f7eeee;
+}
+
+/* Search Section */
+.search-section {
+    padding: 0.5rem 0;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.cta-footer {
+    text-align: center;
+}
+
+/* Botón sin subrayado */
+.btn-footer {
+    font-size: 1.8em;
+    font-weight: bold;
+    font-family: 'Outfit', sans-serif;
+    color: #A176C9;
+    text-decoration: none;
+    padding: 8px 20px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.search-form {
+    margin: 0 auto 0;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: flex;
+    border: none;
+    flex-grow: 1;
+    max-width: 600px;
+}
+
+.search-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que se apilen si no hay espacio en pantallas pequeñas */
+    gap: 1.5rem;
+}
+
+.search-item {
+    flex: 1 1 10%; /* 3 columnas */
+    text-align: center;
+}
+
+.search-item a{
+    font-size: 1rem;
+    font-weight: 500;
+    color: #4C5251;
+    text-decoration: none;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    font-size: 1.1rem;
+    font-family: 'Outfit', sans-serif;
+}
+
+.search-button {
+    padding: 0 1rem;
+    background-color: #A176C9;
+    color: white;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #8a5aa8;
+}
+
+
+.directory-page .section-content {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    padding-left: 150px;
+}
+
+@media (min-width: 768px) {
+    .directory-page .section-content {
+        margin-left: 4rem;
+        margin-right: 4rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .directory-page .section-content {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1200px;
+    }
+}
+
+.directory-page .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.directory-page .back-button {
+    padding: 0.6rem 1rem;
+    color: #A176C9;
+    font-weight: 500;
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+}
+
+.directory-page .category-section {
+    padding: 1rem 0.5rem;
+    margin-top: 2rem;
+    border-top: 4px;
+    border-radius: 10px;
+}
+
+.directory-page .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+.directory-page .category-item {
+    align-items: center;
+    background: white;
+    border-radius: 10px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 2px solid #248F8B;
+}
+
+.directory-page .category-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.directory-page .category-item a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #404040;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.directory-page .category-item small {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.directory-page .section-content h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2rem;
+    text-align: left;
+    color: #404040;
+    margin-bottom: 0;
+}
+
+.directory-page .category-section h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.8rem;
+    color: #404040;
+    text-align: left;
+}
+
+.directory-page .section-content-bottom h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+    color: #404040;
+    margin: 0;
+    padding-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .directory-page .top-bar {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1rem;
+    }
+
+    .directory-page .search-form {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .directory-page .search-input,
+    .directory-page .search-button {
+        border-radius: 6px;
+        width: 100%;
+    }
+
+    .directory-page .search-input {
+        margin-bottom: 0.5rem;
+    }
+
+    .directory-page h1 {
+        font-size: 1.8rem;
+    }
+
+    .directory-page .category-section h2 {
+        font-size: 1.4rem;
+    }
+}

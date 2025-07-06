@@ -9,20 +9,85 @@ body {
     padding: 0;
 }
 
+.book-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 35rem;
+    margin-top: 2rem;
+}
+
+.action-left, .action-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.action-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+    display: inline-block;
+    text-align: center;
+}
+
+.pdf {
+    background-color: #A176C9;
+    color: white;
+}
+
+.pdf:hover {
+    background-color: #8a5aa8;
+}
+
+.sucursales {
+    background-color: #248F8B;
+    color: white;
+}
+
+.sucursales:hover {
+    background-color: #195a58;
+}
+
+
+.cta-footer {
+    text-align: center;
+}
+
+/* Botón sin subrayado */
+.btn-footer {
+    font-size: 1.8em;
+    font-weight: bold;
+    font-family: 'Outfit', sans-serif;
+    color: #A176C9;
+    text-decoration: none;
+    padding: 8px 20px;
+    cursor: pointer;
+    display: inline-block;
+}
+
 .section-content {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0;
 }
 
-/* Top Row: 3 columns (Atrás | Título | Género) */
 .book-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     margin-top: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     padding-left: 1.5rem;
     padding-right: 1.8rem;
 }
@@ -31,6 +96,7 @@ body {
     font-size: 2rem;
     font-weight: 700;
     color: #404040;
+    margin-top: 0;
 }
 
 .book-header .borde-gen {
