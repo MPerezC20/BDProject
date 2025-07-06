@@ -9,6 +9,10 @@ def home_page(request):
     suspenso = Libro.objects.filter(genero='Suspenso')
     infantil = Libro.objects.filter(genero='Infantil')
     ficcion = Libro.objects.filter(genero='Ficcion')
+    romance = Libro.objects.filter(genero='Romance')
+    poesia = Libro.objects.filter(genero='Poesía')
+    clasicogriengo = Libro.objects.filter(genero='Clásico griego')
+    experimental = Libro.objects.filter(genero='Experimental')
 
     # Traer libros por título
     titulos_destacados = ['Moby Dick', 'La chica del tren', 'Drácula']
@@ -23,6 +27,10 @@ def home_page(request):
         'suspenso': suspenso,
         'infantil': infantil,
         'ficcion': ficcion,
+        'romance': romance,
+        'poesia': poesia,
+        'clasicogriengo': clasicogriengo,
+        'experimental': experimental,
         'destacados': destacados,
     }
     return render(request, 'home.html', context)
@@ -30,7 +38,7 @@ def home_page(request):
 def directory(request):
     # Agrupa los libros por género
     libros = Libro.objects.all()
-    generos = ['Ficción', 'Clásico', 'Infantil','Terror', 'Suspenso', 'Fantasía']
+    generos = ['Ficción', 'Clásico', 'Infantil','Terror', 'Suspenso', 'Fantasía', 'Romance', 'Poesía', 'Clásico griego', 'Experimental']
 
     grouped_items = {}
     for genero in generos:
