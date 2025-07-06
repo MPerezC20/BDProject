@@ -125,6 +125,93 @@
 
 <section class="category-section category-2">
     <div class="section-content">
+        <h2>Clásico griego</h2>
+        <p>Tragedias antiguas sobre el destino, la moral y la condición humana, escritas por los grandes autores de Grecia</p>
+        <div class="category-grid">
+            {% for libro in clasicogriengo %}
+            {% if libro.isbn %}
+                <a href="{% url 'detail' libro.isbn %}?from=home" class="category-item" style="text-decoration: none; color: inherit;">
+            {% else %}
+                <div class="category-item" style="pointer-events: none; opacity: 0.6;">
+            {% endif %}
+
+                {% if libro.portadaurl %}
+                    <img src="{{ libro.portadaurl }}" alt="Portada de {{ libro.titulo }}"
+                        style="width: 150px; height: 220px; object-fit: cover; display: block; margin: 0 auto 10px;">
+                {% endif %}
+                <h4>{{ libro.titulo }}</h4>
+                <p><strong>Autor:</strong> {{ libro.autor }}</p>
+
+            {% if libro.isbn %}
+                </a>
+            {% else %}
+                </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="category-section category-2">
+    <div class="section-content">
+        <h2>Romance</h2>
+        <p>Historias de amor que exploran la pasión, los desafíos emocionales y las conexiones profundas entre personas</p>
+        <div class="category-grid">
+            {% for libro in romance %}
+            {% if libro.isbn %}
+                <a href="{% url 'detail' libro.isbn %}?from=home" class="category-item" style="text-decoration: none; color: inherit;">
+            {% else %}
+                <div class="category-item" style="pointer-events: none; opacity: 0.6;">
+            {% endif %}
+
+                {% if libro.portadaurl %}
+                    <img src="{{ libro.portadaurl }}" alt="Portada de {{ libro.titulo }}"
+                        style="width: 150px; height: 220px; object-fit: cover; display: block; margin: 0 auto 10px;">
+                {% endif %}
+                <h4>{{ libro.titulo }}</h4>
+                <p><strong>Autor:</strong> {{ libro.autor }}</p>
+
+            {% if libro.isbn %}
+                </a>
+            {% else %}
+                </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="category-section category-2">
+    <div class="section-content">
+        <h2>Poesía</h2>
+        <p>Versos que expresan emociones, ideas y belleza a través del ritmo, la metáfora y la sensibilidad</p>
+        <div class="category-grid">
+            {% for libro in poesia %}
+            {% if libro.isbn %}
+                <a href="{% url 'detail' libro.isbn %}?from=home" class="category-item" style="text-decoration: none; color: inherit;">
+            {% else %}
+                <div class="category-item" style="pointer-events: none; opacity: 0.6;">
+            {% endif %}
+
+                {% if libro.portadaurl %}
+                    <img src="{{ libro.portadaurl }}" alt="Portada de {{ libro.titulo }}"
+                        style="width: 150px; height: 220px; object-fit: cover; display: block; margin: 0 auto 10px;">
+                {% endif %}
+                <h4>{{ libro.titulo }}</h4>
+                <p><strong>Autor:</strong> {{ libro.autor }}</p>
+
+            {% if libro.isbn %}
+                </a>
+            {% else %}
+                </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="category-section category-2">
+    <div class="section-content">
         <h2>Suspenso</h2>
         <p>Historias que te mantendrán al borde del asiento</p>
         <div class="category-grid">
@@ -158,6 +245,35 @@
         <p>Donde el horror salta de las páginas a tu imaginación</p>
         <div class="category-grid">
             {% for libro in terror %}
+            {% if libro.isbn %}
+                <a href="{% url 'detail' libro.isbn %}?from=home" class="category-item" style="text-decoration: none; color: inherit;">
+                {% else %}
+                <div class="category-item" style="pointer-events: none; opacity: 0.6;">
+                {% endif %}
+
+                    {% if libro.portadaurl %}
+                        <img src="{{ libro.portadaurl }}" alt="Portada de {{ libro.titulo }}"
+                            style="width: 150px; height: 220px; object-fit: cover; display: block; margin: 0 auto 10px;">
+                    {% endif %}
+                    <h4>{{ libro.titulo }}</h4>
+                    <p><strong>Autor:</strong> {{ libro.autor }}</p>
+
+                {% if libro.isbn %}
+                </a>
+                {% else %}
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="category-section category-2">
+    <div class="section-content">
+        <h2>Experimental</h2>
+        <p>Narrativas que rompen las reglas, juegan con la forma y retan al lector a ver la literatura desde otra perspectiva</p>
+        <div class="category-grid">
+            {% for libro in experimental %}
             {% if libro.isbn %}
                 <a href="{% url 'detail' libro.isbn %}?from=home" class="category-item" style="text-decoration: none; color: inherit;">
                 {% else %}
