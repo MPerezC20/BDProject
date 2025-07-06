@@ -24,11 +24,11 @@
             <div class="category-grid">
                 {% for libro in resultados %}
                     <a href="{% url 'detail' libro.isbn %}?from=directory" class="category-item" style="text-decoration: none; color: inherit;">
-                        {% if libro.portadaurl %}
-                            <img src="{{ libro.portadaurl }}" alt="Portada de {{ libro.titulo }}" style="width: 150px; height: 220px; object-fit: cover; display: block; margin: 0 auto 10px;">
+                        {% if libro.portada_url %}
+                            <img src="{{ libro.portada_url }}" alt="Portada de {{ libro.titulo }}" style="width: 150px; height: 220px; object-fit: cover; display: block; margin: 0 auto 10px;">
                         {% endif %}
                         <h4>{{ libro.titulo }}</h4>
-                        <p><strong>Autor:</strong> {{ libro.autor }}</p>
+                        <p><strong>Autor:</strong> {{ libro.autor.nombre }}</p>
                     </a>
                 {% endfor %}
             </div>
@@ -50,11 +50,11 @@
                     <div class="category-grid">
                         {% for libro in libros %}
                         <a href="{% url 'detail' libro.isbn %}?from=directory" class="category-item" style="text-decoration: none; color: inherit;">
-                            {% if libro.portadaurl %}
-                                <img src="{{ libro.portadaurl }}" alt="Portada de {{ libro.titulo }}" style="width: 150px; height: 220px; object-fit: cover; display: block; margin: 0 auto 10px;">
+                            {% if libro.portada_url %}
+                                <img src="{{ libro.portada_url }}" alt="Portada de {{ libro.titulo }}" style="width: 150px; height: 220px; object-fit: cover; display: block; margin: 0 auto 10px;">
                             {% endif %}
                             <h4>{{ libro.titulo }}</h4>
-                            <p><strong>Autor:</strong> {{ libro.autor }}</p>
+                            <p><strong>Autor:</strong> {{ libro.autor.nombre }}</p>
                         </a>
                         {% endfor %}
                     </div>

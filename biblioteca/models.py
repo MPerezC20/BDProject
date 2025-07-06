@@ -174,17 +174,47 @@ class Inventario(models.Model):
 
 
 
-class Libro(models.Model):
-    isbn = models.CharField(db_column='ISBN', primary_key=True, max_length=20)  # Field name made lowercase.
-    titulo = models.CharField(db_column='Titulo', max_length=100, blank=True, null=True)  # Field name made lowercase.
-    autor = models.CharField(db_column='Autor', max_length=100, blank=True, null=True)  # Field name made lowercase.
-    editorial = models.CharField(db_column='Editorial', max_length=100, blank=True, null=True)  # Field name made lowercase.
-    genero = models.CharField(db_column='Genero', max_length=50, blank=True, null=True)  # Field name made lowercase.
-    urlpdf = models.CharField(db_column='UrlPDF', max_length=255, blank=True, null=True)  # Field name made lowercase.
+class Autor(models.Model):
+    id = models.AutoField(primary_key=True, db_column='Id_Autor')
+    nombre = models.CharField(max_length=100, unique=True)
 
     class Meta:
-        managed = False
+        db_table = 'autor'
+
+    def __str__(self):
+        return self.nombre
+
+
+
+class Editorial(models.Model):
+    id = models.AutoField(primary_key=True, db_column='Id_Editorial')
+    nombre = models.CharField(max_length=100, unique=True)
+
+    class Meta:
+        db_table = 'editorial'
+
+    def __str__(self):
+        return self.nombre
+
+
+
+
+class Libro(models.Model):
+    isbn = models.CharField(max_length=20, primary_key=True)
+    titulo = models.CharField(max_length=100)
+    genero = models.CharField(max_length=50)
+    descripcion = models.TextField(blank=True, null=True)
+    url_pdf = models.URLField(blank=True, null=True, db_column='UrlPDF')
+    portada_url = models.URLField(blank=True, null=True, db_column='PortadaURL')
+    autor = models.ForeignKey(Autor, on_delete=models.CASCADE, db_column='Id_Autor')
+    editorial = models.ForeignKey(Editorial, on_delete=models.CASCADE, db_column='Id_Editorial')
+
+
+    class Meta:
         db_table = 'libro'
+
+    def __str__(self):
+        return self.titulo
 
 
 class Local(models.Model):

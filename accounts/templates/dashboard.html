@@ -39,8 +39,8 @@
                 <div class="category-grid">
                     {% for libro in resultados %}
                         <a href="{% url 'Detalle' libro.isbn %}?from=dashboard" class="category-item" style="text-decoration: none; color: inherit;">
-                            {% if libro.portadaurl %}
-                                <img src="{{ libro.portadaurl }}" alt="Portada de {{ libro.titulo }}" style="width: 150px; height: 220px; object-fit: cover;">
+                            {% if libro.portada_url %}
+                                <img src="{{ libro.portada_url }}" alt="Portada de {{ libro.titulo }}" style="width: 150px; height: 220px; object-fit: cover;">
                             {% endif %}
                             <h4>{{ libro.titulo }}</h4>
                             <p><strong>Autor:</strong> {{ libro.autor }}</p>
@@ -62,8 +62,8 @@
             <div class="featured-grid">
                 {% for libro in destacados %}
                 <a href="{% url 'Detalle' libro.isbn %}?from=dashboard" class="featured-item" style="text-decoration: none; color: inherit;">
-                    {% if libro.portadaurl %}
-                    <img src="{{ libro.portadaurl }}" alt="Portada de {{ libro.titulo }}">
+                    {% if libro.portada_url %}
+                    <img src="{{ libro.portada_url }}" alt="Portada de {{ libro.titulo }}">
                     {% endif %}
                     <div>
                         <h4>{{ libro.titulo }}</h4>
@@ -87,8 +87,8 @@
             <div class="category-grid">
                 {% for libro in fantasia %}
                     <a href="{% url 'Detalle' libro.isbn %}?from=dashboard" class="category-item" style="text-decoration: none; color: inherit;">
-                        {% if libro.portadaurl %}
-                        <img src="{{ libro.portadaurl }}" alt="{{ libro.titulo }}" style="width: 150px; height: 220px; object-fit: cover;">
+                        {% if libro.portada_url %}
+                        <img src="{{ libro.portada_url }}" alt="{{ libro.titulo }}" style="width: 150px; height: 220px; object-fit: cover;">
                         {% endif %}
                         <h4>{{ libro.titulo }}</h4>
                         <p><strong>Autor:</strong> {{ libro.autor }}</p>
@@ -109,8 +109,8 @@
             <div class="category-grid">
                 {% for libro in clasico %}
                     <a href="{% url 'Detalle' libro.isbn %}?from=dashboard" class="category-item" style="text-decoration: none; color: inherit;">
-                        {% if libro.portadaurl %}
-                        <img src="{{ libro.portadaurl }}" alt="{{ libro.titulo }}" style="width: 150px; height: 220px; object-fit: cover;">
+                        {% if libro.portada_url %}
+                        <img src="{{ libro.portada_url }}" alt="{{ libro.titulo }}" style="width: 150px; height: 220px; object-fit: cover;">
                         {% endif %}
                         <h4>{{ libro.titulo }}</h4>
                         <p><strong>Autor:</strong> {{ libro.autor }}</p>
@@ -131,8 +131,8 @@
             <div class="category-grid">
                 {% for libro in suspenso %}
                     <a href="{% url 'Detalle' libro.isbn %}?from=dashboard" class="category-item" style="text-decoration: none; color: inherit;">
-                        {% if libro.portadaurl %}
-                        <img src="{{ libro.portadaurl }}" alt="{{ libro.titulo }}" style="width: 150px; height: 220px; object-fit: cover;">
+                        {% if libro.portada_url %}
+                        <img src="{{ libro.portada_url }}" alt="{{ libro.titulo }}" style="width: 150px; height: 220px; object-fit: cover;">
                         {% endif %}
                         <h4>{{ libro.titulo }}</h4>
                         <p><strong>Autor:</strong> {{ libro.autor }}</p>

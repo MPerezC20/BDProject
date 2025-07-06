@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm, CustomAuthenticationForm, CustomUserChangeForm
 from django.shortcuts import render, get_object_or_404
-from home.models import Libro
+from biblioteca.models import Libro
 from home.models import VistaInventarioCompleto
 from django.contrib.auth.decorators import login_required
 

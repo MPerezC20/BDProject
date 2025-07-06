@@ -23,8 +23,8 @@
 
         <!-- Contenido de 2 columnas -->
         <div class="book-content">
-            {% if item.portadaurl %}
-                <img src="{{ item.portadaurl }}" alt="Portada de {{ item.titulo }}">
+            {% if item.portada_url %}
+                <img src="{{ item.portada_url }}" alt="Portada de {{ item.titulo }}">
             {% endif %}
             <div class="book-info">
                 <p><strong>Autor:</strong> {{ item.autor }}</p>
