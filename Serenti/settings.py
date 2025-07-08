@@ -84,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'dblibreria',          # ← el nombre real de tu BD
         'USER': 'root',
-        'PASSWORD': '', # ← tu contraseña real de MySQL
+        'PASSWORD': 'Pakkun17', # ← tu contraseña real de MySQL
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }

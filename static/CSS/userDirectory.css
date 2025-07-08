@@ -28,7 +28,6 @@ body {
     margin: 0;
     margin-top: 30px;
     margin-bottom: 65px;
-    text-align: center;
 }
 
 .search-grid {
@@ -40,9 +39,10 @@ body {
 }
 
 .search-item {
-    flex: 0.1 0 10%;
+    flex: 0.2 0 10%;
     text-align: center;
-    margin-right: 30px;
+    margin-right: 50px;
+    margin-top: 12px;
 }
 
 .search-item a {
@@ -53,10 +53,10 @@ body {
 }
 
 .search-form {
-    margin: 0 auto;
+    margin: 0 auto 0;
     border-radius: 50px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     display: flex;
     border: none;
     flex-grow: 1;
@@ -65,7 +65,7 @@ body {
 
 .search-input {
     flex: 1;
-    padding: 0.8rem 1.5rem;
+    padding: 0.7rem 1.5rem;
     border: none;
     font-size: 1.1rem;
     font-family: 'Outfit', sans-serif;
